@@ -103,7 +103,7 @@ class Manager(object):
                         "project specific file found, using it for this run.")
             lfile = self.last_run_base
 
-        date = None
+        date = dateutil.parser.parse("1970-01-01")
 
         if os.path.exists(lfile):
             with open(lfile, "r") as fd:
@@ -111,9 +111,9 @@ class Manager(object):
         try:
             date = dateutil.parser.parse(date)
         except Exception:
-            LOG.error("ERROR: Could not read date from lastrun file '%s', "
-                      "defaulting to '1970-01-01'" % lfile)
-            date = dateutil.parser.parse("1970-01-01")
+            LOG.error("ERROR: Could not read date from lastrun file '%s'" %
+                      lfile)
+            raise
         else:
             LOG.debug("Got '%s' from lastrun file '%s'" % (date, lfile))
         return date
