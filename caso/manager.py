@@ -14,11 +14,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import datetime
 import os
 import os.path
 
-from dateutil import tz
 from oslo_concurrency import lockutils
 from oslo_config import cfg
 
