@@ -113,6 +113,16 @@ class OpenStackExtractor(base.BaseExtractor):
     @staticmethod
     def _get_server_end(server):
         server_end = server.__getattr__('OS-SRV-USG:terminated_at')
+        if server_end is None:
+            # If the server has no end_time, and no launched_at, we should use
+            # server.created as the end time (i.e. VM has not started at all)
+            if server.__getattr__("OS-SRV-USG:launched_at") is None:
+                server_end = server.created
+            # Then, if a server is deleted, stuck in task_status deleting, and
+            # the end time is None, we have to return the updated time as the
+            # end date, otherwise these server will never be completed.
+            elif server.status == "DELETED":
+                server_end = server.updated
         if server_end:
             server_end = dateutil.parser.parse(server_end)
             server_end = server_end.replace(tzinfo=None)
