@@ -1,6 +1,6 @@
 # caso
 
-<img src="https://github.com/IFCA/caso/blob/master/doc/source/static/caso.png" width="300">
+<img src="https://github.com/IFCA/caso/raw/master/doc/source/static/caso.png" width="300">
 
 [![Travis](https://img.shields.io/travis/IFCA/caso.svg)](https://travis-ci.org/IFCA/caso)
 [![Coveralls](https://img.shields.io/coveralls/IFCA/caso.svg)](https://coveralls.io/github/IFCA/caso)
@@ -13,7 +13,7 @@ cASO is an OpenStack Accounting extractor.
 * Source: https://github.com/IFCA/caso
 * Bugs: https://github.com/IFCA/caso/issues
 
-<img src="https://github.com/IFCA/caso/blob/master/doc/source/static/caso-diagram.png" width="500">
+<img src="https://github.com/IFCA/caso/raw/master/doc/source/static/caso-diagram.png" width="500">
 
 Documentation (the source is in ``doc/source/``) is online at
 [caso documentation](https://caso.readthedocs.org/en/latest/).
